@@ -17,9 +17,6 @@ module DelayedPaperclip
 
     def detect_background_task
       return DelayedPaperclip::Jobs::Sidekiq    if defined? ::Sidekiq
-      return DelayedPaperclip::Jobs::ActiveJob  if defined? ::ActiveJob::Base
-      return DelayedPaperclip::Jobs::DelayedJob if defined? ::Delayed::Job
-      return DelayedPaperclip::Jobs::Resque     if defined? ::Resque
     end
 
     def processor
